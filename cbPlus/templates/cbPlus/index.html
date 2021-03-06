@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    {% load static %}
+    <link href="{% static 'cbPlus/style.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1 class="title"> Expiry date management app </h1>
+</header>
+
+<form method="POST" class="form">
+    {% csrf_token %}
+    <div class="form">
+    {{ form.as_ul }}
+    <button type= "submit" class = "submit"> insert </button>
+    </div>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th> Expiry date </th>
+            <th> GTIN </th>
+            <th> Name </th>
+            <th> Price </th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i in product %}
+        <tr>
+            <td>{{i.expiryDate}}</td>
+            <td>{{i.GTIN}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.price}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+
+<footer>
+
+</footer>
+
+</body>
+</html>
