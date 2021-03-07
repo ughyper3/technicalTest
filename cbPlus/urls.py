@@ -1,8 +1,8 @@
 from django.conf.urls import url
 
-from . import views # import views so we can use them in urls.
+from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.index), # "cbPlus" will call the method "index" in "views.py"
+    url(r'^$', views.index),
 ]

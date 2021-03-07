@@ -3,6 +3,7 @@ body{
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: white;
+    height: 80%;
 }
 
 h1.title{
@@ -28,7 +29,7 @@ form{
 }
 
 div.form{
-    margin-left: 14%;
+    margin-left: 14%; /* Should improve this one : no idea how to horizontally center the form */
 
 }
 
@@ -37,7 +38,7 @@ table{
     margin: 50px auto;
     width: auto;
     min-width: 400px;
-    border: 2px solid whitesmoke;
+    border: 2px solid #f3f3f3;
     box-shadow: 0 5px 50px rgba(0,0,0,0.25);
 }
 
@@ -51,7 +52,7 @@ th, td{
 }
 
 tbody, th, tr, td{
-    border: 1.5px solid #ddd;
+    border: 1.5px solid #f3f3f3;
 }
 
 tbody tr:nth-child(even){
@@ -89,11 +90,11 @@ button.submit:hover{
 }
 
 footer{
-    height: 125px;
+    height: 100px;
     background: linear-gradient(to bottom right, #072801, #115D03);
 }
 
-
+/* using media queries to reduce dimension of elements to adapt small screens size */
 
 @media (max-width: 700px) {
 

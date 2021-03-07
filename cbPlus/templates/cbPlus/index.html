@@ -1,51 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-    {% load static %}
-    <link href="{% static 'cbPlus/style.css' %}" rel="stylesheet">
-</head>
-<body>
-
-<header>
-    <h1 class="title"> Expiry date management app </h1>
-</header>
-
-<form method="POST" class="form">
-    {% csrf_token %}
-    <div class="form">
-    {{ form.as_ul }}
-    <button type= "submit" class = "submit"> insert </button>
-    </div>
-</form>
-
-<table>
-    <thead>
-        <tr>
-            <th> Expiry date </th>
-            <th> GTIN </th>
-            <th> Name </th>
-            <th> Price </th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for i in product %}
-        <tr>
-            <td>{{i.expiryDate}}</td>
-            <td>{{i.GTIN}}</td>
-            <td>{{i.name}}</td>
-            <td>{{i.price}}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-
-</table>
+    <head>
+        <meta charset="UTF-8">
+        <title>Index</title>
+        {% load static %}
+        <link href="{% static 'cbPlus/style.css' %}" rel="stylesheet">
+    </head>
 
 
-<footer>
+    <body>
 
-</footer>
 
-</body>
+<!-- Part 1 : Header -->
+
+
+
+        <header>
+            <h1 class="title"> Expiry date management app </h1>
+        </header>
+
+
+
+<!-- Part 2 : Form -->
+
+
+
+        <form method="POST" class="form">
+            {% csrf_token %}     <!-- CSRF protection -->
+            <div class="form">
+                {{ form.as_ul }}
+                <button type= "submit" class = "submit"> insert </button>
+            </div>
+        </form>
+
+
+
+<!-- Part 3 : Table -->
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th> Expiry date </th>
+                    <th> GTIN </th>
+                    <th> Name </th>
+                    <th> Price </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for i in product %}
+                    <tr>
+                        <td>{{i.expiryDate}}</td>
+                        <td>{{i.GTIN}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.price}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+
+<!-- Part 4 : Footer -->
+
+
+
+        <footer>
+        </footer>
+
+    </body>
 </html>
