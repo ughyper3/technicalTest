@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 import django_heroku
 
@@ -24,9 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'rlyfsi899uascsl9z8t=(p2*9pc4ouqd7mxzns=-ldp07$pn=7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+if os.environ.get('ENV') == 'PRODUCTION':
+    DEBUG = False
+else:
+    DEBUG = True
+
+ALLOWED_HOSTS = ['expiry-date-management-app.herokuapp.com', '127.0.0.1' ]
 
 
 # Application definition
@@ -50,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
 
 ROOT_URLCONF = 'technicalTest.urls'
 
@@ -78,11 +84,11 @@ WSGI_APPLICATION = 'technicalTest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', # on utilise l'adaptateur postgresql
-        'NAME': 'technicalTest', # le nom de notre base de donnees creee precedemment
-        'USER': 'postgres', # attention : remplacez par votre nom d'utilisateur
-        'PASSWORD': 'password',
-        'HOST': '',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd5gm7d3vbpehd6',
+        'USER': 'rrpifepllxotfm',
+        'PASSWORD': 'ecc4d39adefcf249e40d01899bd5f3c4c4b19c1f75a95511bdd3e6d1a9ea8db2',
+        'HOST': 'ec2-52-4-171-132.compute-1.amazonaws.com',
         'PORT': '5432',
 
     }
@@ -129,3 +135,15 @@ STATIC_URL = '/static/'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+if os.environ.get('ENV') == 'PRODUCTION':
+
+    # Static files settings
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+    # Extra places for collectstatic to find static files.
+    STATICFILES_DIRS = (
+        os.path.join(PROJECT_ROOT, 'static'),
+    )
