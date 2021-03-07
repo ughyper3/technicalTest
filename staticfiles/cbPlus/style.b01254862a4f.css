@@ -1,0 +1,126 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    height: 80%;
+}
+
+h1.title{
+    color: whitesmoke;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+}
+
+header{
+    margin-top: 0px;
+    padding-top: 0px;
+    width: auto;
+    height: 125px;
+    line-height: 125px;
+    background: linear-gradient(to bottom right, #072801, #115D03);
+}
+
+form{
+    background-color: whitesmoke;
+    width: auto;
+}
+
+div.form{
+    margin-left: 14%; /* Should improve this one : no idea how to horizontally center the form */
+
+}
+
+table{
+    border-collapse: collapse;
+    margin: 50px auto;
+    width: auto;
+    min-width: 400px;
+    border: 2px solid #f3f3f3;
+    box-shadow: 0 5px 50px rgba(0,0,0,0.25);
+}
+
+thead tr{
+    background-color: #1EBF00;
+    color: white;
+}
+th, td{
+    padding: 25px 30px;
+    text-align: center;
+}
+
+tbody, th, tr, td{
+    border: 1.5px solid #f3f3f3;
+}
+
+tbody tr:nth-child(even){
+    background-color: #f3f3f3;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li{
+    margin: 25px 10px;
+    display: inline-block;
+}
+
+label{
+    font-size: 16px;
+}
+
+button.submit{
+    color: whitesmoke;
+    background-color: #1EBF00;
+    border-color: #1EBF00;
+    border-radius: 10px;
+    padding: 3px 3px;
+    font-size: 14px;
+}
+
+button.submit:hover{
+    font-size: 15px;
+    padding: 5px 5px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.25);
+}
+
+footer{
+    height: 100px;
+    background: linear-gradient(to bottom right, #072801, #115D03);
+}
+
+/* using media queries to reduce dimension of elements to adapt small screens size */
+
+@media (max-width: 700px) {
+
+    h1.title{
+        font-size: 28px;
+    }
+
+    label{
+    font-size: 12px;
+    }
+
+    header{
+        height: 75px;
+        line-height: 75px;
+    }
+
+    footer{
+        height: 75px;
+    }
+
+    th, td{
+    padding: 15px 20px;
+    text-align: center;
+    }
+
+    tbody, th, tr, td{
+    font-size: 12px;
+}
+}
